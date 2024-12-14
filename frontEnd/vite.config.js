@@ -6,8 +6,10 @@ export default defineConfig({
     port: 3001,
     proxy: {
       '/api': {
-        target: 'https://soketproject.onrender.com',
+        target: process.env.VITE_APP_SOKET_URL || 'https://soketproject.onrender.com',
         changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/api/, ''), // Optional: adjust based on backend routes
       },
     },
   },
