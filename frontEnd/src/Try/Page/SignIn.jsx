@@ -14,7 +14,7 @@ const SignIn = () => {
       (state) => state.socket.onlineUsers
     );
 
-    console.log('onlineUsers',users.filter((item)=>onlineUsers.includes(item._id)).map((item2)=>item2.userName))
+    console.log('onlineUsers',users?.filter((item)=>onlineUsers.includes(item._id)).map((item2)=>item2.userName))
 
     const handelSignInForm=async()=>{
       if(!(userEmail && userPassword)){
